@@ -1,0 +1,23 @@
+.logo_content{
+    width: 100px;
+    height: 100px;
+    border-radius: 25%;
+}
+
+.logo{
+    border-radius: 50%;
+    box-shadow: 2px 5px 8px #00000030;
+    animation: fadeIn 400ms cubic-bezier(0.175, 0.885, 0.32, 1.05);
+}
+
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
