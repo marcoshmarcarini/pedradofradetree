@@ -19,9 +19,9 @@ export default function Links() {
     useEffect(() => {
         const browserLanguage = navigator.language || navigator.languages[0]
         setLanguage(browserLanguage)
-        if(browserLanguage == 'pt-BR'){
+        if (browserLanguage == 'pt-BR') {
             setMensagem(mensagemFormatadaPt)
-        }else{
+        } else {
             setMensagem(mensagemFormatadaEn)
         }
     }, [])
@@ -49,8 +49,6 @@ export default function Links() {
             >
                 Visit our website
             </Link>
-
-            {language}
 
         </div>
     )
