@@ -5,16 +5,25 @@ import Link from 'next/link'
 
 export default function Links() {
 
-    const mensagem = `Olá! Vim do Instagram, quero saber mais sobre os produtos.`
-    const mensagemFormatada = mensagem.replace(' ', '%20')
+    const mensagemPtBr = `Olá! Vim do Instagram, quero saber mais sobre os produtos.`
+    const mensagemEnUs = `Hello! I came from Instagram, I want to know more about the products.`
+    const mensagemFormatadaPt = mensagemPtBr.replace(' ', '%20')
+    const mensagemFormatadaEn = mensagemEnUs.replace(' ', '%20')
+
     const telefone = '5528999044546'
     const site = 'https://www.pedradofrade.com.br/'
 
     const [language, setLanguage] = useState('')
+    const [mensagem, setMensagem] = useState('')
 
     useEffect(() => {
         const browserLanguage = navigator.language || navigator.languages[0]
         setLanguage(browserLanguage)
+        if(browserLanguage == 'pt-BR'){
+            setMensagem(mensagemFormatadaPt)
+        }else{
+            setMensagem(mensagemFormatadaEn)
+        }
     }, [])
 
     /* 
@@ -29,7 +38,7 @@ export default function Links() {
     return (
         <div className={styles.links_content}>
             <Link
-                href={`https://wa.me/${telefone}?text=${mensagemFormatada}`}
+                href={`https://wa.me/${telefone}?text=${mensagem}`}
                 className={styles.link}
             >
                 WhatsApp
@@ -41,6 +50,7 @@ export default function Links() {
                 Visit our website
             </Link>
 
+            {language}
 
         </div>
     )
